@@ -22,4 +22,22 @@ public class CharacterProperty2D : Character_Property
         }
     }
 
+    Rigidbody2D _rigid2D = null;
+
+    protected Rigidbody2D myRigid2D
+    {
+        get
+        {
+            if (_rigid2D == null)
+            {
+                _rigid2D = GetComponent<Rigidbody2D>();
+                if (_rigid2D == null)
+                {
+                    _rigid2D = GetComponentInChildren<Rigidbody2D>();
+                }
+            }
+            return _rigid2D;
+        }
+    }
+
 }
